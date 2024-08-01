@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Portfolio</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/bb185eed9a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="img/logo1.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                    <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i> 
+            </nav>
+            <div class="header-text">
+                <p>Graphic Designer</p>
+                <h1>Hi, I am <span> Shoohel </span></h1>
+            </div>
+        </div>
+    </div>
+
+
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="img/us.jpg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="subtitle">About Me</h1>
+                <P>
+                    Student with a passion for graphic design 
+                    and fitness. Skilled in creating captivating 
+                    flyers and promotional materials. Enjoys 
+                    swimming, gym workouts, and maintaining a
+                    balanced lifestyle. Eager to apply creative 
+                    talents and teamwork skills to real-world
+                    projects.
+                </P>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Graphic Designing</span><br>Designing Commercial flyers and banners</li>
+                        <li><span>Web Development</span><br>Website Development</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>Graphic Designing</span><br>SELF TAUGHT</li>
+                        <li><span>2020 - 2021</span><br>HIGHER SECONDARY</li>
+                        <li><span>2022 - Current</span><br>Bachelors in Computer Application</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>FREELANCE FLYER DESIGNER</span><br></li>
+                        <li><span>Graphic Design Intern</span><br>At mug designing startup</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="services">
+    <div class="container">
+        <h1 class="subtitle">My services</h1>
+        <div class="services-list">
+            <div>
+                <h2>Graphic Design</h2>
+                <p>Designed flyers for college events.
+                    Worked closely with event organizers.
+                    Received positive feedback for impactful 
+                    designs.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <h2>Web Design</h2>
+                <p>Designed websites for multiple startups.</p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="portfolio">
+    <div class="container">
+        <h1 class="subtitle">My Work</h1>
+        <div class="worklist">
+            <div class="work">
+                <img src="img/works/w1.png">
+                <div class="layer">
+                    <h3>Ai Event Flyer</h3>
+                    <p>Made using photoshop</p>
+                    <i class="fa-solid fa-pencil"></i>
+                </div>
+            </div>
+            <div class="work">
+                <img src="img/works/w2.png">
+                <div class="layer">
+                    <h3>Geek Camp Flyer</h3>
+                    <p>Made using photoshop</p>
+                    <i class="fa-solid fa-pencil"></i>
+                </div>
+            </div>
+            <div class="work">
+                <img src="img/works/w3.jpg">
+                <div class="layer">
+                    <h3>Chess competition Flyer</h3>
+                    <p>Made using photoshop</p>
+                    <i class="fa-solid fa-pencil"></i>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+</div>
+
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="subtitle">Contact Me</h1>
+                <p> <i class="fa-solid fa-envelope"></i> shoohel876@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i>+91 8732864917</p>
+                <div class="socialicons">
+                    <a href="https://www.instagram.com/zzz_anshu_zzz/"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <a href="Img/cv-Recovered.png" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form>
+                    <input type="text" name="Name" placeholder="Your name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright © Shoohel</p>
+    </div>
+</div>
+
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname)
+    {
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+
+</script>
+
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu()
+    {
+        sidemenu.style.right = "0";
+    }
+
+    function closemenu()
+    {
+        sidemenu.style.right = "-200px";
+    }
+</script>
+
+</body>
+</html>
