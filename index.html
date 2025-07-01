@@ -26,14 +26,14 @@
                 <i class="fa-solid fa-bars" onclick="openmenu()"></i> 
             </nav>
             <div class="header-text">
-                <p>Graphic Designer</p>
+                <p>Creative Developer & Designer</p>
                 <h1>Hi, I am <span> Shoohel </span></h1>
             </div>
         </div>
     </div>
 
 
-<div id="about">
+<div id="about" class="reveal">
     <div class="container">
         <div class="row">
             <div class="about-col-1">
@@ -42,13 +42,7 @@
             <div class="about-col-2">
                 <h1 class="subtitle">About Me</h1>
                 <P>
-                    Student with a passion for graphic design 
-                    and fitness. Skilled in creating captivating 
-                    flyers and promotional materials. Enjoys 
-                    swimming, gym workouts, and maintaining a
-                    balanced lifestyle. Eager to apply creative 
-                    talents and teamwork skills to real-world
-                    projects.
+                    A motivated and detail-oriented individual with a strong foundation in computer applications and creative problem-solving. Experienced in both technical and design domains, with a passion for building user-focused solutions and continuous learning. Adept at working independently or in a team to meet project goals efficiently.
                 </P>
                 <div class="tab-titles">
                     <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
@@ -57,20 +51,20 @@
                 </div>
                 <div class="tab-contents active-tab" id="skills">
                     <ul>
+                        <li><span>App Development</span><br>Proficient in building cross-platform mobile applications using React Native with a focus on clean UI and efficient performance. Experienced in creating RESTful APIs and backend services using Node.js and Express, integrating databases, and managing full-stack workflows.</li>
                         <li><span>Graphic Designing</span><br>Designing Commercial flyers and banners</li>
-                        <li><span>Web Development</span><br>Website Development</li>
                     </ul>
                 </div>
                 <div class="tab-contents" id="education">
                     <ul>
                         <li><span>Graphic Designing</span><br>SELF TAUGHT</li>
                         <li><span>2020 - 2021</span><br>HIGHER SECONDARY</li>
-                        <li><span>2022 - Current</span><br>Bachelors in Computer Application</li>
+                        <li><span>2022 - 2025</span><br>Bachelors in Computer Application</li>
                     </ul>
                 </div>
                 <div class="tab-contents" id="experience">
                     <ul>
-                        <li><span>FREELANCE FLYER DESIGNER</span><br></li>
+                        <li><span>UI/UX Designer</span><br>Verified (Startup) </li>
                         <li><span>Graphic Design Intern</span><br>At mug designing startup</li>
                         
                     </ul>
@@ -81,7 +75,7 @@
 </div>
 
 
-<div id="services">
+<div id="services" class="reveal">
     <div class="container">
         <h1 class="subtitle">My services</h1>
         <div class="services-list">
@@ -94,48 +88,64 @@
                 <a href="#">Learn more</a>
             </div>
             <div>
-                <h2>Web Design</h2>
-                <p>Designed websites for multiple startups.</p>
+                <h2>Web Development</h2>
+                <p>I build responsive, fast, and modern websites tailored to your brand. From landing pages to full-scale web apps, I ensure your site looks great on every device.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <h2>App Development</h2>
+                <p>I create user-friendly and scalable mobile apps for Android and iOS. Whether it's a startup idea or a business tool, I bring your app to life with clean code and thoughtful design.</p>
                 <a href="#">Learn more</a>
             </div>
         </div>
     </div>
 </div>
 
-<div id="portfolio">
+<div id="portfolio" class="reveal">
     <div class="container">
         <h1 class="subtitle">My Work</h1>
-        <div class="worklist">
-            <div class="work">
-                <img src="Img/works/w1.png">
-                <div class="layer">
-                    <h3>Ai Event Flyer</h3>
-                    <p>Made using photoshop</p>
-                    <i class="fa-solid fa-pencil"></i>
+        <div class="tab-titles">
+            <p class="tab-links portfolio-links active-link" onclick="openportfoliotab('designs')">Designs</p>
+            <p class="tab-links portfolio-links" onclick="openportfoliotab('projects')">Projects</p>
+        </div>
+        <div class="tab-contents active-tab" id="designs">
+            <div class="worklist">
+                <div class="work">
+                    <img src="Img/works/w1.png">
+                    <div class="layer">
+                        <h3>Ai Event Flyer</h3>
+                        <p>Made using photoshop</p>
+                        <i class="fa-solid fa-pencil"></i>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="Img/works/w2.png">
+                    <div class="layer">
+                        <h3>Geek Camp Flyer</h3>
+                        <p>Made using photoshop</p>
+                        <i class="fa-solid fa-pencil"></i>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="Img/works/w3.jpg">
+                    <div class="layer">
+                        <h3>Chess competition Flyer</h3>
+                        <p>Made using photoshop</p>
+                        <i class="fa-solid fa-pencil"></i>
+                    </div>
                 </div>
             </div>
-            <div class="work">
-                <img src="Img/works/w2.png">
-                <div class="layer">
-                    <h3>Geek Camp Flyer</h3>
-                    <p>Made using photoshop</p>
-                    <i class="fa-solid fa-pencil"></i>
-                </div>
-            </div>
-            <div class="work">
-                <img src="Img/works/w3.jpg">
-                <div class="layer">
-                    <h3>Chess competition Flyer</h3>
-                    <p>Made using photoshop</p>
-                    <i class="fa-solid fa-pencil"></i>
-                </div>
+        </div>
+        <div class="tab-contents" id="projects">
+            <div class="worklist">
+                <p>No projects to show yet.</p>
             </div>
         </div>
         <a href="https://in.pinterest.com/shoohel876/pins/" target="_blank" class="btn">See more</a>
     </div>
 </div>
 
-<div id="contact">
+<div id="contact" class="reveal">
     <div class="container">
         <div class="row">
             <div class="contact-left">
@@ -145,7 +155,7 @@
                 <div class="socialicons">
                     <a href="https://www.instagram.com/zzz_anshu_zzz/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </div>
-                <a href="Img/cv-Recovered.png" download class="btn btn2">Download CV</a>
+                <a href="Img/cv.png" download class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
                 <form name="submit-to-google-sheet">
@@ -199,6 +209,25 @@
     }
 </script>
 
+<script>
+    var portfoliolinks = document.getElementsByClassName("portfolio-links");
+    var portfoliocontents = document.querySelectorAll("#portfolio .tab-contents");
+
+    function openportfoliotab(tabname)
+    {
+        for(tablink of portfoliolinks){
+            tablink.classList.remove("active-link");
+        }
+
+        for(tabcontent of portfoliocontents){
+            tabcontent.classList.remove("active-tab");
+        }
+
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+
 <!-- <form name="submit-to-google-sheet">
   <input name="email" type="email" placeholder="Email" required>
   <button type="submit">Send</button>
@@ -221,7 +250,27 @@
   })
 </script>
 
+<script type="text/javascript">
+    window.addEventListener('scroll', reveal);
 
+    function reveal(){
+        var reveals = document.querySelectorAll('.reveal');
+
+        for(var i = 0; i < reveals.length; i++){
+
+            var windowheight = window.innerHeight;
+            var revealtop = reveals[i].getBoundingClientRect().top;
+            var revealpoint = 150;
+
+            if(revealtop < windowheight - revealpoint){
+                reveals[i].classList.add('active');
+            }
+            else{
+                reveals[i].classList.remove('active');
+            }
+        }
+    }
+</script>
 
 </body>
 </html>
