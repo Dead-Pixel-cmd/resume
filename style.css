@@ -290,6 +290,38 @@ nav ul li a:hover::after
 {
     height: 100%;
 }
+
+.project-card {
+    background: #262626;
+    padding: 40px;
+    border-radius: 10px;
+    color: #fff;
+    transition: background 0.5s, transform 0.5s;
+}
+
+.project-card:hover {
+    background: #ff004f;
+    transform: translateY(-10px);
+}
+
+.project-card h3 {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.project-card a {
+    margin-top: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #ff004f;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+
 .btn{
     display: block;
     margin: 50px auto;
