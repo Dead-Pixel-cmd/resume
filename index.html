@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Portfolio</title>
+    <title>Shoohel's Portfolio</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <meta name="description" content="Shoohel's personal portfolio showcasing creative development, design, and app development projects.">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chatbot.css">
     <script src="https://kit.fontawesome.com/bb185eed9a.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="header">
         <div class="container">
             <nav>
-                <img src="Img/logo1.png" class="logo">
+                <img src="Img/logo1.png" class="logo" alt="Shoohel's Portfolio Logo">
                 <ul id="sidemenu">
                     <li><a href="#header">Home</a></li>
                     <li><a href="#about">About Me</a></li>
@@ -37,7 +37,7 @@
     <div class="container">
         <div class="row">
             <div class="about-col-1">
-                <img src="Img/us.jpg">
+                <img src="Img/us.jpg" alt="Profile picture of Shoohel">
             </div>
             <div class="about-col-2">
                 <h1 class="subtitle">About Me</h1>
@@ -122,7 +122,7 @@
         <div class="tab-contents" id="designs">
             <div class="worklist">
                 <div class="work">
-                    <img src="Img/works/w1.png">
+                    <img src="Img/works/w1.png" alt="AI Event Flyer design">
                     <div class="layer">
                         <h3>Ai Event Flyer</h3>
                         <p>Made using photoshop</p>
@@ -130,7 +130,7 @@
                     </div>
                 </div>
                 <div class="work">
-                    <img src="Img/works/w2.png">
+                    <img src="Img/works/w2.png" alt="Geek Camp Flyer design">
                     <div class="layer">
                         <h3>Geek Camp Flyer</h3>
                         <p>Made using photoshop</p>
@@ -138,7 +138,7 @@
                     </div>
                 </div>
                 <div class="work">
-                    <img src="Img/works/w3.jpg">
+                    <img src="Img/works/w3.jpg" alt="Chess competition flyer design">
                     <div class="layer">
                         <h3>Chess competition Flyer</h3>
                         <p>Made using photoshop</p>
@@ -277,6 +277,129 @@
         }
     }
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const chatIcon = document.getElementById('chatIcon');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChatButton = document.getElementById('closeChat');
+        const chatMessageInput = document.getElementById('chatMessageInput');
+        const chatSendButton = document.getElementById('chatSendButton');
+        const chatMessageLog = document.getElementById('chatMessageLog');
+        const askMeAnythingBanner = document.getElementById('askMeAnythingBanner');
+        const thinkingIndicator = document.getElementById('thinkingIndicator'); // Get thinking indicator
+
+        // Show banner on page load and hide after a few seconds
+        if (askMeAnythingBanner) {
+            setTimeout(() => {
+                askMeAnythingBanner.classList.add('show');
+            }, 500); // Delay showing slightly
+
+            setTimeout(() => {
+                askMeAnythingBanner.classList.remove('show');
+            }, 4000); // Hide after 3.5 seconds (500ms delay + 3500ms display)
+        }
+
+        // Function to append messages to the chat log
+        const appendChatMessage = (sender, text) => {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add(sender + '-message');
+            messageDiv.textContent = text;
+            chatMessageLog.appendChild(messageDiv);
+            chatMessageLog.scrollTop = chatMessageLog.scrollHeight; // Scroll to bottom
+        };
+
+        // Toggle chat window visibility
+        chatIcon.addEventListener('click', () => {
+            console.log('Chat icon clicked!'); // Debug log
+            chatWindow.classList.toggle('open');
+            if (chatWindow.classList.contains('open')) {
+                chatMessageInput.focus();
+                // Initial message when chat opens
+                if (chatMessageLog.children.length === 0) {
+                    appendChatMessage('bot', 'Hello! Ask me anything about the resume.');
+                }
+            }
+        });
+
+        closeChatButton.addEventListener('click', () => {
+            chatWindow.classList.remove('open');
+        });
+
+        // Send message functionality
+        const sendMessage = async () => {
+            const message = chatMessageInput.value.trim();
+            if (message) {
+                appendChatMessage('user', `You: ${message}`);
+                chatMessageInput.value = ''; // Clear input
+
+                // Create and append thinking indicator
+                const thinkingIndicatorDiv = document.createElement('div');
+                thinkingIndicatorDiv.classList.add('thinking-indicator', 'show');
+                thinkingIndicatorDiv.innerHTML = '<span>.</span><span>.</span><span>.</span>';
+                chatMessageLog.appendChild(thinkingIndicatorDiv);
+                chatMessageLog.scrollTop = chatMessageLog.scrollHeight; // Scroll to bottom to show indicator
+
+                try {
+                    const response = await fetch('https://chatbackend-phi.vercel.app/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ message: message })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    appendChatMessage('Shoohel', `Shoohel: ${data.reply}`);
+                } catch (error) {
+                    console.error('Error sending message:', error);
+                    appendChatMessage('bot', `Bot: Error: Could not get a response.`);
+                } finally {
+                    // Remove thinking indicator
+                    if (thinkingIndicatorDiv.parentNode) {
+                        thinkingIndicatorDiv.parentNode.removeChild(thinkingIndicatorDiv);
+                    }
+                }
+            }
+        };
+
+        chatSendButton.addEventListener('click', sendMessage);
+        chatMessageInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    });
+</script>
+
+    <!-- Ask Me Anything Banner -->
+    <div class="ask-me-anything-banner" id="askMeAnythingBanner">
+        Ask me anything!
+    </div>
+
+    <!-- Chatbot Icon -->
+    <div class="chat-icon" id="chatIcon">
+        <i class="fa-solid fa-comment-dots"></i>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <h3>Chat</h3>
+            <button id="closeChat">X</button>
+        </div>
+        <div class="message-log" id="chatMessageLog">
+            <!-- Messages will be appended here -->
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatMessageInput" placeholder="Ask about the resume...">
+            <button id="chatSendButton">Send</button>
+        </div>
+    </div>
 
 </body>
 </html>

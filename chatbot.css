@@ -1,0 +1,199 @@
+/* Ask Me Anything Banner */
+.ask-me-anything-banner {
+    position: fixed;
+    bottom: 90px; /* Position above the chat icon */
+    right: 20px;
+    background-color: #ff004f; /* Accent color */
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 999; /* Below chat icon, above page content */
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Start slightly below final position */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    pointer-events: none; /* Ensure it doesn't block clicks */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+.ask-me-anything-banner.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Chatbot Icon */
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff004f; /* Accent color */
+    color: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.2s;
+}
+.chat-icon:hover {
+    transform: scale(1.05);
+}
+
+/* Chatbot Window */
+.chat-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    background-color: #262626; /* Dark grey background */
+    border: 1px solid #ff004f; /* Accent color border */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+    transform: translateY(100%); /* Start hidden below screen */
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    pointer-events: none; /* Disable interactions when hidden */
+}
+.chat-window.open {
+    transform: translateY(0); /* Slide up */
+    opacity: 1;
+    pointer-events: auto; /* Enable interactions when open */
+}
+
+.chat-header {
+    background-color: #ff004f; /* Accent color */
+    color: #fff;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.chat-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+.chat-header button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.message-log {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #1a1a1a; /* Darker background for log */
+    color: #fff; /* White text for messages */
+}
+.message-log div {
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+.message-log .user-message {
+    background-color: #b54769; /* Darker accent for user messages */
+    color: #fff;
+    margin-left: auto;
+    border-bottom-right-radius: 2px;
+}
+.message-log .bot-message {
+    background-color: #333; /* Darker grey for bot messages */
+    color: #fff;
+    margin-right: auto;
+    border-bottom-left-radius: 2px;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 10px 15px;
+    border-top: 1px solid #ff004f; /* Accent color border */
+    background-color: #262626; /* Dark grey background */
+}
+.chat-input-area input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ababab; /* Grey border */
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 14px;
+    background-color: #1a1a1a; /* Darker input background */
+    color: #fff; /* White text for input */
+}
+.chat-input-area button {
+    padding: 10px 15px;
+    background-color: #ff004f; /* Accent color */
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+.chat-input-area button:hover {
+    background-color: #b54769; /* Darker accent on hover */
+}
+
+/* Thinking Indicator */
+.thinking-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: auto; /* Align left like bot messages */
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    border-radius: 15px;
+    background-color: #333; /* Same as bot messages */
+    color: #fff;
+    max-width: 80%;
+    word-wrap: break-word;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.2s ease-in-out;
+}
+
+.thinking-indicator.show {
+    opacity: 1;
+}
+
+.thinking-indicator span {
+    font-size: 24px;
+    line-height: 1;
+    animation: blink 1.4s infinite;
+    opacity: 0;
+}
+
+.thinking-indicator span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.thinking-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.thinking-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0%, 75%, 100% {
+        opacity: 0;
+    }
+    25%, 50% {
+        opacity: 1;
+    }
+}
